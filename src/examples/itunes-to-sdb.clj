@@ -24,7 +24,7 @@
   "dict node is {:tag :dict :content [k v k v ...]}
   where k is: {:tag :key :content [\"Key Name\"]}
   and v is {:tag :dict|:string|:integer|:date|:array|:true|:false|:data}"
-  ([node] (dict->map node identity))
+  ([node] (dict->map identity node))
   ([key-fn node]
    (let [df (java.text.SimpleDateFormat. "yyyy-MM-dd'T'HH:mm:ss'Z'")]
      (condp = (:tag node)
