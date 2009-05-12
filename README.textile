@@ -1,0 +1,8 @@
+h1. SDB
+
+A Clojure library for working with "Amazon SimpleDB":http://aws.amazon.com/simpledb/
+, "(docs)":http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuide/
+
+Built on top of Amazon's "Java API for SimpleDB":http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1132&categoryID=189
+, "(javadoc)":http://s3.amazonaws.com/awscode/amazon-simpledb/2007-11-07/java/library/doc/index.htm
+
