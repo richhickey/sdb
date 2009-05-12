@@ -7,3 +7,5 @@ Built on top of Amazon's "Java API for SimpleDB":http://developer.amazonwebservi
 , "(javadocs)":http://s3.amazonaws.com/awscode/amazon-simpledb/2007-11-07/java/library/doc/index.htm
 
 The library lets you directly save and load Clojure data, and query using data. No strings! Stores using lexicographically-sortable representations. Can store strings, keywords, ints, longs, Dates, booleans and UUIDs, and can be extended to other primitives.
+
+The dependencies can be downloaded from "here":http://cloud.github.com/downloads/richhickey/sdb/deps.zip
