@@ -8,9 +8,11 @@
 
 (ns org.clojure.sdb
  "A Clojure library for working with Amazon SimpleDB
+  
   http://aws.amazon.com/simpledb/
 
   Built on top of the Java API:
+
   http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1132&categoryID=189
   http://s3.amazonaws.com/awscode/amazon-simpledb/2007-11-07/java/library/doc/index.html"
  (use clojure.contrib.pprint)
