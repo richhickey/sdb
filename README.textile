@@ -37,7 +37,7 @@ h2. Usage
 
 (query client '{:select [:secret-identity] :from "heroes" :where (= :evil true)})
 ;; ({:secret-identity "Eddie Brock", :sdb/id "venom"})
-pre>
+</pre>
 
 h2. Local Use
 
