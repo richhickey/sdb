@@ -12,41 +12,45 @@ The dependencies can be downloaded from "here":http://cloud.github.com/downloads
 
 h2. Usage
 
-  (use 'org.clojure.sdb)
+<pre>
+(use 'org.clojure.sdb)
 
-  (def aws-key "[...]")
-  (def aws-secret-key "[...]")
-  (def client (create-client aws-key aws-secret-key))
+(def aws-key "[...]")
+(def aws-secret-key "[...]")
+(def client (create-client aws-key aws-secret-key))
 
-  (put-attrs client "heroes" {:sdb/id "spiderman"
-                              :power "spidery-things"
-                              :secret-identity "Peter Parker"})
+(put-attrs client "heroes" {:sdb/id "spiderman"
+                            :power "spidery-things"
+                            :secret-identity "Peter Parker"})
 
-  (put-attrs client "heroes" {:sdb/id "hulk"
-                              :power "huge angry thing"
-                              :secret-identity "Bruce Banner"})
+(put-attrs client "heroes" {:sdb/id "hulk"
+                            :power "huge angry thing"
+                            :secret-identity "Bruce Banner"})
 
-  (put-attrs client "heroes" {:sdb/id "venom"
-                              :power "spidery-things"
-                              :secret-identity "Eddie Brock"
-                              :evil true})
+(put-attrs client "heroes" {:sdb/id "venom"
+                            :power "spidery-things"
+                            :secret-identity "Eddie Brock"
+                            :evil true})
 
-  (get-attrs client "heroes" "spiderman")
-  ;; {:secret-identity "Peter Parker", :power "spidery-things", :sdb/id "spiderman"}
+(get-attrs client "heroes" "spiderman")
+;; {:secret-identity "Peter Parker", :power "spidery-things", :sdb/id "spiderman"}
 
-  (query client '{:select [:secret-identity] :from "heroes" :where (= :evil true)})
-  ;; ({:secret-identity "Eddie Brock", :sdb/id "venom"})
+(query client '{:select [:secret-identity] :from "heroes" :where (= :evil true)})
+;; ({:secret-identity "Eddie Brock", :sdb/id "venom"})
+pre>
 
 h2. Local Use
 
 It's not always desirable to connect to a live server when using SimpleDB since you get charged (a small amount) for every transaction, and you won't be able to develop while offline. To develop against a local SimpleDB mock, download and install "SimpleDB-dev":http://code.google.com/p/simpledb-dev/ and configure your client to use an alternate service URL:
 
-  $ wget http://simpledb-dev.googlecode.com/files/simpledb-dev-0.1.10.zip
-  $ unzip simpledb-dev-0.1.10.zip
-  $ python SimpleDB-Dev/src/simpledb_dev.py &
+<pre>
+$ wget http://simpledb-dev.googlecode.com/files/simpledb-dev-0.1.10.zip
+$ unzip simpledb-dev-0.1.10.zip
+$ python SimpleDB-Dev/src/simpledb_dev.py &
 
-  In your code:
+In your code:
 
-  (create-client my-sdb-key my-sdb-secret-key
-                 (.withServiceURL (com.amazonaws.sdb.AmazonSimpleDBConfig.)
-                                  "http://localhost:8080")))
+(create-client my-sdb-key my-sdb-secret-key
+               (.withServiceURL (com.amazonaws.sdb.AmazonSimpleDBConfig.)
+                                "http://localhost:8080")))
+</pre>
