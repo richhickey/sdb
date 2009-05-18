@@ -35,9 +35,12 @@
 (defn create-client
   "Creates a client for talking to a specific AWS SimpleDB
   account. The same client can be reused for multiple requests (from
-  the same thread?)."  
-  [aws-key aws-secret-key]
-  (AmazonSimpleDBClient. aws-key aws-secret-key (-> (AmazonSimpleDBConfig.) (.withSignatureVersion "1"))))
+  the same thread?)."
+  ([aws-key aws-secret-key config]
+     (AmazonSimpleDBClient. aws-key aws-secret-key config))
+  ([aws-key aws-secret-key]
+     (create-client aws-key aws-secret-key
+                    (.withSignatureVersion (AmazonSimpleDBConfig.) "1"))))
 
 (defn create-domain
   "Creates a domain in the account. This is an administrative operation"
